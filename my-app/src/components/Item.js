@@ -13,8 +13,8 @@ export function Item({ data }) {
   }
 
   const { number, title, originalTitle, description, releaseDate, pages, cover } = data;
-  const { fullName, nickname, hogwartsHouse, interpretedBy, children, image, birtdate } = data;
-  const { house, emoji, founder, colours, animal } = data;
+  const { fullName, nickname, hogwartsHouse, interpretedBy, children, image, birthdate } = data;
+  const { house, emoji, founder, colors, animal } = data;
   const {spell, use } = data;
 
   
@@ -43,28 +43,31 @@ export function Item({ data }) {
         <Card.Body>
           <Card.Title>{nickname}</Card.Title>
           <Card.Text>
-            {limitText(hogwartsHouse, 90)}
+            {hogwartsHouse}
           </Card.Text>
         </Card.Body>
         <ListGroup className="list-group-flush">
-          <ListGroup.Item>Birthdate: {birtdate}</ListGroup.Item>
-          <ListGroup.Item>Interpreted By: {interpretedBy}</ListGroup.Item>
-          <ListGroup.Item>Children: {children}</ListGroup.Item>
+          <ListGroup.Item>Birthdate: {birthdate}</ListGroup.Item>
+          <ListGroup.Item>Actor: {interpretedBy}</ListGroup.Item>
+          <ListGroup.Item style={{height: '100px', overflow: 'hidden'}}>
+            Children: {children.length === 0 ? <p>N/A</p> : children.map((child) => {
+            return <span key={child}>{child}, </span>
+          })}</ListGroup.Item>
         </ListGroup>
       </Card>
     )
   } else if (house){
     return (
-      <Card style={{ width: '255px'}} className='bg-secondary text-white'>
-        <Card.Header>{house}</Card.Header>
-        <Card.Body>
-          <Card.Title>Founder: {founder}</Card.Title>
+      <Card style={{ width: '255px'}}>
+        <Card.Header>{house} [{emoji}]</Card.Header>
+        <Card.Body style={{backgroundColor: colors[0], color: colors[1]}}>
           <Card.Text>
-            {limitText(emoji, 90)}
+            Founder: {founder}
           </Card.Text>
         </Card.Body>
         <ListGroup className="list-group-flush">
-          <ListGroup.Item>Colours: {colours}</ListGroup.Item>
+          <ListGroup.Item>Colors: <b style={{color: colors[0]}}>{colors[0]}</b> and 
+          <b style={{color: colors[1]}}> {colors[1]}</b></ListGroup.Item>
           <ListGroup.Item>Animal: {animal}</ListGroup.Item>
         </ListGroup>
       </Card>

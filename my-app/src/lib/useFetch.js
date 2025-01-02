@@ -6,21 +6,23 @@ export function useFetch(url) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    async function loadData() {
-      try {
-        setLoading(true);
-        setError(null);
-        const result = await fetch(url);
-        setData(await result.json());
-      } catch (err) {
-        setError(err.message || "Something went wrong");
-      } finally {
+    fetch(url)
+      .then((res) => {
+        if (!res.ok) {
+          throw Error("Could not fetch the data for that resource");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setData(data);
         setLoading(false);
-      }
-    }
-
-    loadData();
-  });
+        setError(null);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
 
   return { data, loading, error };
 }
