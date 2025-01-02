@@ -1,28 +1,48 @@
 import {Button, Container, Form, Nav, Navbar, NavDropdown} from 'react-bootstrap';
 import { useRouter } from 'next/router';
-import { useState, useEffect, use } from 'react';
+import { useState } from 'react';
 
-export function NavBar(){
+function SearchForm({ onSearch }) {
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const router = useRouter();
-  const { lang = "en" } = router.query;
-  const {searchQuery, setSearchQuery} = useState("");
-  const {filters, setFilters} = useState("books");
-
-  const handleLang = (selected) => {
-    const currentPath = router.asPath.replace(`/${lang}`, `/${selected}`); // Replace language in the current path
-    router.push(currentPath); // Navigate to the updated path
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSearch(searchQuery);
   };
 
-  const handleSearch = () => {
-    const currentPath = router.asPath.replace(`/${lang}/${filters}?search=${searchQuery}`); // Replace language in the current path
-    router.push(currentPath); // Navigate to the updated path
-  }
+  return (
+    <Form className="d-flex" onSubmit={handleSubmit}>
+      <Form.Control
+        type="search"
+        placeholder="Search"
+        className="me-2"
+        aria-label="Search"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
+      <Button variant="outline-success" type="submit">Search</Button>
+    </Form>
+  );
+}
 
-  const handleFilter = (selected) => {
+export function NavBar() {
+  const router = useRouter();
+  const { lang = "en" } = router.query;
+  const [filters, setFilters] = useState("books");
+
+  const handleLang = (selected) => {
+    const currentPath = router.asPath.replace(`/${lang}`, `/${selected}`);
+    router.push(currentPath);
+  };
+
+  const handleFilterChange = (selected) => {
     setFilters(selected);
-  }
+  };
 
+  const handleSearch = (searchQuery) => {
+    router.push(`/${lang}/search?filter=${filters}&search=${searchQuery}`);
+  };
+  
 
   return (
     <Navbar expand="lg" bg="dark" data-bs-theme="dark">
@@ -50,24 +70,16 @@ export function NavBar(){
               <NavDropdown.Item onClick={() => handleLang("it")}>Italiano</NavDropdown.Item>
               <NavDropdown.Item onClick={() => handleLang("pt")}>Português</NavDropdown.Item>
             </NavDropdown>
+            </Nav>
+            {/*
             <NavDropdown title="Filter" id="navbarScrollingDropdown">
-              <NavDropdown.Item onClick={() => handleFilter("books")}>Book</NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleLang("characters")}>Character</NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleLang("houses")}>House</NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleLang("spells")}>Spell</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleFilterChange("books")}>Books</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleFilterChange("characters")}>Characters</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleFilterChange("houses")}>Houses</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleFilterChange("spells")}>Spells</NavDropdown.Item>
             </NavDropdown>
-          </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <Button variant="outline-success" onSubmit={handleSearch}>Search</Button>
-          </Form>
+          
+          *<SearchForm onSearch={handleSearch} />*/}
         </Navbar.Collapse>
       </Container>
     </Navbar>
