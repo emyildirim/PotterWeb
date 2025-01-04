@@ -1,13 +1,14 @@
 import { Endpoints } from "@/lib/api"
 import { useFetch } from "@/lib/useFetch";
-import {Item} from "@/components/Item"
-import { useRouter } from "next/router";
+import { Item } from "@/components/Item"
+
+import { useContext } from "react";
+import LanguageContext from "@/lib/languageContext";
 
 export default function Spells(){
-    const router = useRouter();
-    const lang = router.query.lang || 'en';
-    const {data: spells, loading, error } = useFetch(Endpoints.GET_SPELLS(lang)); 
-    
+    const { language } = useContext(LanguageContext);
+    const {data: spells, loading, error } = useFetch(Endpoints.GET_SPELLS(language)); 
+
     return(
         <div className="flex-horizontal top-margin bottom-margin">
 

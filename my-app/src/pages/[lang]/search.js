@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import SearchResults from "@/components/SearchResults";
+import { SearchResults } from "@/components/SearchResults";
 
 function SearchPage() {
   const router = useRouter();

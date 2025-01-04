@@ -1,12 +1,13 @@
 import { Endpoints } from "@/lib/api"
 import { useFetch } from "@/lib/useFetch";
 import {Item} from "@/components/Item"
-import { useRouter } from "next/router";
+
+import { useContext } from "react";
+import LanguageContext from "@/lib/languageContext";
 
 export default function Characters(){
-    const router = useRouter();
-    const lang = router.query.lang || 'en';
-    const {data: characters, loading, error } = useFetch(Endpoints.GET_CHARACTERS(lang));
+    const { language } = useContext(LanguageContext);
+    const {data: characters, loading, error } = useFetch(Endpoints.GET_CHARACTERS(language));
 
     return (
         <div className="flex-horizontal top-margin bottom-margin">

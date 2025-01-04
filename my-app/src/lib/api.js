@@ -2,6 +2,8 @@ import { useFetch } from "@/lib/useFetch";
 
 const API_URL = `https://potterapi-fedeperin.vercel.app`
 
+const filters = ["books", "characters", "houses", "spells"];
+
 export const Endpoints = {
     GET_BOOKS: (lang) => `${API_URL}/${lang}/books`,  
     GET_CHARACTERS: (lang) => `${API_URL}/${lang}/characters`,

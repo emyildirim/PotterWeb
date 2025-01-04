@@ -22,7 +22,7 @@ export function useFetch(url) {
         setError(err.message);
         setLoading(false);
       });
-  }, []);
+  }, [url]);
 
   return { data, loading, error };
 }
