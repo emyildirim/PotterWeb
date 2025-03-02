@@ -4,37 +4,11 @@ import { useState, useContext, useEffect } from 'react';
 import { translations } from "@/lib/lang";
 import LanguageContext from "@/lib/languageContext";
 
-function SearchForm({ onSearch }) {
-  //const { language } = useLanguage();
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSearch(searchQuery);
-  };
-
-  return (
-    <Form className="d-flex" onSubmit={handleSubmit}>
-      <Form.Control
-        type="search"
-        placeholder={translations.search.placeholder[language]}
-        className="me-2"
-        aria-label={translations.search.placeholder[language]}
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />
-      <Button variant="outline-success" type="submit">
-        {translations.search.button[language]}
-      </Button>
-    </Form>
-  );
-}
-
 export function NavBar() {
   const router = useRouter();
-  //const [filters, setFilters] = useState("books");
+  const [filter, setFilter] = useState("books");
   const { language, setLanguage } = useContext(LanguageContext);
-
+  const [searchQuery, setSearchQuery] = useState("");
   const handleLang = (selected) => {
     if (selected !== language) {
       setLanguage(selected);
@@ -43,8 +17,10 @@ export function NavBar() {
     }
   };
 
-  const handleSearch = (searchQuery) => {
-    router.push(`/${language}/search?filter=${filters}&search=${searchQuery}`);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearchQuery(searchQuery);
+    router.push(`/${language}/search?filter=${filter}&query=${searchQuery}`);
   };
 
   const renderNavLinks = () => (
@@ -101,16 +77,27 @@ export function NavBar() {
           <Nav>
             {renderLanguageDropdown()}
           </Nav>
-          {/* Uncomment the following lines to enable filter and search functionality */}
-          {/* 
-          <NavDropdown title="Filter" id="navbarScrollingDropdown">
-            <NavDropdown.Item onClick={() => setFilters("books")}>Books</NavDropdown.Item>
-            <NavDropdown.Item onClick={() => setFilters("characters")}>Characters</NavDropdown.Item>
-            <NavDropdown.Item onClick={() => setFilters("houses")}>Houses</NavDropdown.Item>
-            <NavDropdown.Item onClick={() => setFilters("spells")}>Spells</NavDropdown.Item>
-          </NavDropdown>
-          <SearchForm onSearch={handleSearch} />
-          */}
+          <Nav>
+            <NavDropdown title={translations.navbar[filter][language]} id="navbarScrollingDropdown">
+              <NavDropdown.Item onClick={() => setFilter("books")}>{translations.navbar.books[language]}</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => setFilter("characters")}>{translations.navbar.characters[language]}</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => setFilter("houses")}>{translations.navbar.houses[language]}</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => setFilter("spells")}>{translations.navbar.spells[language]}</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Form className="d-flex" onSubmit={handleSearch}>
+            <Form.Control
+              type="search"
+              placeholder={translations.search.placeholder[language]}
+              className="me-2"
+              aria-label={translations.search.placeholder[language]}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <Button variant="outline-success" type="submit">
+              {translations.search.button[language]}
+            </Button>
+          </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>

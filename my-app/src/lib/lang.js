@@ -76,7 +76,7 @@ export const translations = {
       "fr": "Français",
       "it": "Italiano",
       "pt": "Português"
-    }
+    },
   },
   "homePage": {
     "title": {
@@ -115,6 +115,20 @@ export const translations = {
       "fr": "Chargement...",
       "it": "Caricamento...",
       "pt": "Carregando..."
+    },
+    "error": {
+      "en": "Something went wrong, Please try again later.",
+      "es": "Algo salió mal, por favor intente de nuevo más tarde.",
+      "fr": "Quelque chose a mal tourné, veuillez réessayer plus tard.",
+      "it": "Qualcosa è andato storto, per favore riprova più tardi.",
+      "pt": "Algo deu errado, tente novamente mais tarde."
+    },
+    "results": {
+      "en": "Search results for",
+      "es": "Resultados de búsqueda para",
+      "fr": "Résultats de recherche pour",
+      "it": "Risultati della ricerca per",
+      "pt": "Resultados da pesquisa para"
     }
   },
   "aboutPage": {
@@ -155,6 +169,13 @@ export const translations = {
     }
   },
   "search": {
+    "noSearch": {
+      "en": "Please enter a search query.",
+      "es": "Por favor, ingrese una consulta de búsqueda.",
+      "fr": "Veuillez entrer une requête de recherche.",
+      "it": "Per favore, inserisci una query di ricerca.",
+      "pt": "Por favor, insira uma consulta de pesquisa."
+    },
     "noResults": {
       "en": "No results found for \"{query}\".",
       "es": "No se encontraron resultados para \"{query}\".",

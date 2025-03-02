@@ -7,9 +7,13 @@
 }
 
 .top-margin{
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
 
 .bottom-margin{
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hide-flow{
+    overflow: hidden;
 }
