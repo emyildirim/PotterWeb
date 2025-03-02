@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 
-export function useFetch(url) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+export function useFetch(url, initialData = null) {
+  const [data, setData] = useState(initialData);
+  const [loading, setLoading] = useState(!initialData);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    if (!url) return;
+
     fetch(url)
       .then((res) => {
         if (!res.ok) {

@@ -1,8 +1,10 @@
 import { Card, ListGroup} from 'react-bootstrap';
 import { translations } from '@/lib/lang';
+import LanguageContext from '@/lib/languageContext';
+import { useContext } from 'react';
 
 export function Item({ data }) {
-  const language = window.location.pathname.split("/")[1];
+  const { language } = useContext(LanguageContext);
   const { item } = translations;
 
   if(!data){
