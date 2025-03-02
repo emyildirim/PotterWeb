@@ -1,7 +1,11 @@
 import { Container } from "react-bootstrap"
 import Head from 'next/head'
+import { translations } from "@/lib/lang";
+import { useContext } from "react";
+import LanguageContext from "@/lib/languageContext";
 
 export default function Home() {
+  const { language } = useContext(LanguageContext);
   return (
     <>
     <Head>
@@ -10,8 +14,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
         <Container>
-            <h1 className="text-center">Welcome to PotterWeb</h1>
-            <p className="text-center">Choose a language to get started</p>
+            <h1 className="text-center">{translations.homePage.title[language]}</h1>
+            <p className="text-center">{translations.homePage.description[language]}</p>
         </Container>
     </>
   );

@@ -4,6 +4,7 @@ import { Endpoints } from "@/lib/api"
 import { useFetch } from "@/lib/useFetch";
 
 import { useState, useContext } from "react";
+import { translations } from "@/lib/lang";
 import LanguageContext from "@/lib/languageContext";
 
 export default function Random(){
@@ -22,10 +23,12 @@ export default function Random(){
     return(
         <>
             <Container className="flex-horizontal top-margin">
-                <Button variant="dark" onClick={incrementIndex}>Generate</Button>
+                <Button variant="dark" onClick={incrementIndex}>
+                    {translations.navbar.random.generate[language]}
+                </Button>
             </Container>
             <Container className="flex-horizontal top-margin bottom-margin">
-                {loading ? <p>Loading...</p> 
+                {loading ? <p>{translations.errors.loading[language]}</p> 
                 : error ? <p>{error}</p> 
                 : data != null ? <Item data={data}/> : null}
             </Container>
