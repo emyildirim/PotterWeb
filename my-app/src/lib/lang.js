@@ -87,20 +87,27 @@ export const translations = {
       "pt": "Bem-vindo ao PotterWeb"
     },
     "description": {
-      "en": "PotterWeb is a website that provides information about the Harry Potter series.",
-      "es": "PotterWeb es un sitio web que proporciona información sobre la serie de Harry Potter.",
-      "fr": "PotterWeb est un site web qui fournit des informations sur la série Harry Potter.",
-      "it": "PotterWeb è un sito web che fornisce informazioni sulla serie di Harry Potter.",
-      "pt": "PotterWeb é um site web que fornece informações sobre a série de Harry Potter."
+      "en": "PotterWeb is a website that provides information about the Harry Potter series. It is a fan-made website and is not affiliated with J.K. Rowling, Warner Bros., or any of the Harry Potter books.",
+      "es": "PotterWeb es un sitio web que proporciona información sobre la serie de Harry Potter. Es un sitio web fan-made y no está afiliado con J.K. Rowling, Warner Bros. o ninguna de las novelas de Harry Potter.",
+      "fr": "PotterWeb est un site web qui fournit des informations sur la série Harry Potter. C'est un site web fan-made et n'est pas affilié avec J.K. Rowling, Warner Bros. ou aucune des œuvres de Harry Potter.",
+      "it": "PotterWeb è un sito web che fornisce informazioni sulla serie di Harry Potter. È un sito web fan-made e non è affiliato con J.K. Rowling, Warner Bros. o nessuna delle opere di Harry Potter.",
+      "pt": "PotterWeb é um site web que fornece informações sobre a série de Harry Potter. É um site web fan-made e não está afiliado com J.K. Rowling, Warner Bros. ou nenhuma das obras de Harry Potter."
+    },
+    "footer": {
+      "en": "All rights reserved.",
+      "es": "Derechos reservados.",
+      "fr": "Tous droits réservés.",
+      "it": "Tutti i diritti riservati.",
+      "pt": "Todos os direitos reservados."
     }
   },
   "errors": {
     "noData": {
-      "en": "No Data Found!",
-      "es": "¡No se encontraron datos!",
-      "fr": "Aucune donnée trouvée!",
-      "it": "Nessun dato trovato!",
-      "pt": "Nenhum dado encontrado!"
+      "en": "No results found for",
+      "es": "No se encontraron resultados para",
+      "fr": "Aucun résultat trouvé pour",
+      "it": "Nessun risultato trovato per",
+      "pt": "Nenhum resultado encontrado para"
     },
     "somethingWentWrong": {
       "en": "Something went wrong, Please try again later.",
@@ -133,39 +140,25 @@ export const translations = {
   },
   "aboutPage": {
     "title": {
-      "en": "About Us",
-      "es": "Acerca de Nosotros",
-      "fr": "À Propos de Nous",
+      "en": "About Me",
+      "es": "Acerca de Mí",
+      "fr": "À Propos de Moi",
       "it": "Chi Siamo",
-      "pt": "Sobre Nós"
+      "pt": "Sobre Mí"
     },
-    "ourStory": {
-      "en": "Our Story",
-      "es": "Nuestra Historia",
-      "fr": "Notre Histoire",
-      "it": "La Nostra Storia",
-      "pt": "Nossa História"
+    "description": {
+      "en": "I am a passione full-stack web developer and a big fan of Harry Potter. I have created this website as a side project to learn more about web development and to share my love for Harry Potter with others.",
+      "es": "Soy un desarrollador web full-stack apasionado y un gran fanático de Harry Potter. He creado este sitio web como un proyecto secundario para aprender más sobre el desarrollo web y compartir mi amor por Harry Potter con otros.",
+      "fr": "Je suis un développeur web full-stack passionné et un grand fan de Harry Potter. J'ai créé ce site web comme un projet secondaire pour apprendre plus sur le développement web et partager mon amour pour Harry Potter avec d'autres.",
+      "it": "Sono uno sviluppatore web full-stack appassionato e un grande fan di Harry Potter. Ho creato questo sito web come un progetto secondario per imparare di più sullo sviluppo web e condividere il mio amore per Harry Potter con altri.",
+      "pt": "Sou um desenvolvedor web full-stack apaixonado e um grande fã de Harry Potter. Criei este site como um projeto secundário para aprender mais sobre o desenvolvimento web e compartilhar meu amor pelo Harry Potter com outros."
     },
-    "ourMission": {
-      "en": "Our Mission",
-      "es": "Nuestra Misión",
-      "fr": "Notre Mission",
-      "it": "La Nostra Missione",
-      "pt": "Nossa Missão"
-    },
-    "ourTeam": {
-      "en": "Our Team",
-      "es": "Nuestro Equipo",
-      "fr": "Notre Équipe",
-      "it": "Il Nostro Team",
-      "pt": "Nossa Equipe"
-    },
-    "getInTouch": {
-      "en": "Get In Touch",
-      "es": "Ponte en Contacto",
-      "fr": "Contactez-Nous",
-      "it": "Contattaci",
-      "pt": "Entre em Contato"
+    "socialmedia": {
+      "en": "Social Media",
+      "es": "Redes Sociales",
+      "fr": "Réseaux Sociaux",
+      "it": "Social Media",
+      "pt": "Redes Sociais"
     }
   },
   "search": {

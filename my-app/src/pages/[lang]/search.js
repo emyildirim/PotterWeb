@@ -14,7 +14,7 @@ export default function SearchPage() {
   
   // Wait for query params to be available
   if (!filter || !query) {
-    return <p>{translations.search.noSearch[language]}</p>;
+    return <p className="search-results">{translations.search.noSearch[language]}</p>;
   }
 
   const highlightText = (text, query) => {
@@ -24,15 +24,15 @@ export default function SearchPage() {
   };
 
   if (loading) {
-    return <p>{translations.errors.loading[language]}</p>;
+    return <p className="error-message">{translations.errors.loading[language]}</p>;
   }
 
   if (error) {
-    return <p>{translations.errors.error[language]}</p>;
+    return <p className="error-message">{translations.errors.error[language]}</p>;
   }
 
   if (!data || data.length === 0) {
-    return <p>{`${translations.errors.noData[language]} "${query}"`}</p>;
+    return <p className="error-message">{`${translations.errors.noData[language]} "${query}"`}</p>;
   }
 
   const renderResults = () => {
@@ -42,7 +42,7 @@ export default function SearchPage() {
       case 'houses':
       case 'spells':
         return (
-          <div className="flex-horizontal top-margin bottom-margin">
+          <div className="flex-horizontal top-margin bottom-margin search-results">
             {data.map((result) => (
               <div key={result.id || result.index}>
                 <Item data={result} />
@@ -70,7 +70,7 @@ export default function SearchPage() {
 
   return (
       <div className="container">
-        <h3>{translations.errors.results[language]} "{query}"</h3>
+        <h3 className="text-center bottom-margin-2 top-margin-2">{translations.errors.results[language]} "{query}"</h3>
         {renderResults()}
       </div>
   );

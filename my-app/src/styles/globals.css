@@ -14,6 +14,89 @@
     margin-bottom: 1rem;
 }
 
+.top-margin-2{
+    margin-top: 1.5rem;
+}
+
+.bottom-margin-2{
+    margin-bottom: 1.5rem;
+}
+
 .hide-flow{
     overflow: hidden;
+}
+
+.text-limit{
+    max-width: 70ch;
+    margin: 0 auto;
+    /*text-align: justify;*/
+}
+
+hr{
+    margin: 0 auto;
+    width: 65%;
+    border-top: 1px solid #000;
+    margin-bottom: 0.25rem;
+    margin-top: 0.25rem;
+    opacity: 0.5;
+    color: #000;
+}
+
+footer{
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #000;
+    opacity: 0.5;
+}
+
+.profile-image{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.image-logo{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 25%;
+}
+
+.error-message{
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+}
+
+.search-results{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+}
+
+.main{
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+}
+
+.about-me{
+    font-size: 1rem;
+}
+
+@media (max-width: 420px) {
+    .main{
+        padding-bottom: 1rem;
+    }
+    .about-me{
+        font-size: 1rem;
+    }
 }

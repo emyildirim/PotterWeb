@@ -2,7 +2,6 @@ import { Endpoints, staticConfig, fetchCategoryData } from "@/lib/api"
 import { useFetch } from "@/lib/useFetch";
 import { Item } from "@/components/Item"
 import { useContext } from "react";
-import { useRouter } from 'next/router';
 import LanguageContext from "@/lib/languageContext";
 import { translations } from "@/lib/lang";
 
@@ -30,7 +29,7 @@ export default function CategoryPage({ initialData, category }) {
                 : error ? <p>{error}</p>
                     : data ? data.map((item) => (
                         <Item 
-                            key={item.index || item.number} 
+                            key={item.index || item.id || item.number} 
                             data={item}
                         />
                     )) : null}
