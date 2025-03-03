@@ -70,7 +70,7 @@ export default function SearchPage() {
 
   return (
       <div className="container">
-        <h3 className="text-center bottom-margin-2 top-margin-2">{translations.errors.results[language]} "{query}"</h3>
+        <h3 className="text-center bottom-margin-2 top-margin-2">{translations.errors.results[language]} &quot;{query}&quot;</h3>
         {renderResults()}
       </div>
   );
