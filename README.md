@@ -2,6 +2,7 @@
 
 ## Overview
 PotterWeb is a modern web application built with Next.js that provides comprehensive information about the Harry Potter universe. The application features multiple language support and offers detailed information about books, characters, and spells from the Harry Potter series.
+<img width="1456" alt="image" src="https://github.com/user-attachments/assets/74d3180a-c1f9-4de1-89d0-ad96a1904d22" />
 
 ## Features
 - 📚 Detailed information about Harry Potter books
